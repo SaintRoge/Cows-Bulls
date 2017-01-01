@@ -6,7 +6,7 @@ app = Cows-Bulls
 lib = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 CXX = g++
 RM = rm -rf
-SRC = src/bin/
+SRC = src/
 FLAGS = -std=c++11
 
 all: main.o game.o
