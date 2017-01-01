@@ -9,6 +9,17 @@ public:
   Game(sf::RenderWindow *window);
   ~Game();
   void start();
+  /*
+   * Needs nothing
+   * Starts the game
+   * Returns nothing 
+   */
+  void resize();
+  /*
+   * Needs nothing
+   * The windows components resize
+   * Returns nothing
+   */
 private:
   sf::RenderWindow *m_window;
   sf::Event m_event;

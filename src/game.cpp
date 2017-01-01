@@ -18,10 +18,14 @@ void Game::start() {
 		break;
 	  }
 	  if (m_event.type == sf::Event::Resized) {
-		m_window->setView(sf::View(sf::FloatRect(0, 0, m_event.size.width, m_event.size.height)));
+		resize();
 	  }
 	}
 	m_window->clear(sf::Color(109, 153, 255));
 	m_window->display();	
   }
+}
+
+void Game::resize() {
+  m_window->setView(sf::View(sf::FloatRect(0, 0, m_window->getSize().x, m_window->getSize().y)));
 }
