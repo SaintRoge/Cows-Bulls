@@ -23,8 +23,22 @@ public:
    * Resize
    * Returns nothing
    */
+  void select(int sButton);
+  /*
+   * Needs the button id
+   * Change the selected button
+   * Returns nothing
+   */
+  void deselect(int sButton);
+  /*
+   * Needs the button id
+   * Deselect the chosen button
+   * Returns nothing
+   */
+  
 private:
   int m_menuArraySize;
+  int m_selectedButton;
   
   std::vector<sf::Text> m_menuArray;
   std::vector<std::string> m_menuStringArray;
@@ -33,6 +47,8 @@ private:
   sf::Font m_font;
   sf::Text m_playText;
   sf::Text m_quitText;
+  sf::Clock m_choiceClock;
+  sf::Time m_choiceTime;
 
   Game *m_game;
 };
