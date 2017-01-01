@@ -20,7 +20,7 @@ private:
   sf::RenderWindow *m_window;
   sf::Event m_event;
 
-  Game *game;
+  Game *m_game;
 };
 
 #endif //MAINWINDOW_HPP_INCLUDED

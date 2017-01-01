@@ -22,8 +22,8 @@ void MainWindow::start() {
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-	  game = new Game(m_window);
-	  game->start();
+	  m_game = new Game(m_window);
+	  m_game->start();
 	}
 	m_window->clear(sf::Color(109, 153, 255));
 	m_window->display();
