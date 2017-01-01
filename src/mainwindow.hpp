@@ -35,6 +35,12 @@ public:
    * Deselect the chosen button
    * Returns nothing
    */
+  void close();
+  /*
+   * Needs nothing
+   * Closes the window
+   * Returns nothing
+   */
   
 private:
   int m_menuArraySize;

@@ -40,8 +40,7 @@ void MainWindow::start() {
   while (m_window->isOpen()) {
 	while (m_window->pollEvent(m_event)) {
 	  if (m_event.type == sf::Event::Closed) {
-		std::cout << "Game finished" << std::endl;
-		m_window->close();
+		close();
 		break;
 	  }
 	  if (m_event.type == sf::Event::Resized) {
@@ -50,8 +49,13 @@ void MainWindow::start() {
 	}	
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-	  m_game = new Game(m_window);
-	  m_game->start();
+	  if (m_selectedButton == 0) {
+		m_game = new Game(m_window);
+		m_game->start();
+	  } else if (m_selectedButton == 1) {
+		close();
+		break;
+	  }
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && m_choiceClock.getElapsedTime() >= m_choiceTime) {
@@ -102,4 +106,9 @@ void MainWindow::select(int sButton) {
 void MainWindow::deselect(int sButton) {
   m_menuArray[sButton].setCharacterSize(60);
   m_menuArray[sButton].setPosition(m_menuArray[m_selectedButton].getPosition().x + 10, m_menuArray[m_selectedButton].getPosition().y);
+}
+
+void MainWindow::close() {
+  std::cout << "App closed" << std::endl;
+  m_window->close();
 }
