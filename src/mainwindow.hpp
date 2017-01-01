@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "game.hpp"
+
 class MainWindow {
 public:
   MainWindow(sf::RenderWindow *window);
@@ -18,6 +20,7 @@ private:
   sf::RenderWindow *m_window;
   sf::Event m_event;
 
+  Game *game;
 };
 
 #endif //MAINWINDOW_HPP_INCLUDED
