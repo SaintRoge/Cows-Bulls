@@ -45,15 +45,24 @@ public:
 private:
   int m_menuArraySize;
   int m_selectedButton;
+
+  bool m_fullscreen;
+  bool m_fullscreenEnable;
   
   std::vector<sf::Text> m_menuArray;
   std::vector<std::string> m_menuStringArray;
+
   sf::RenderWindow *m_window;
+
   sf::Event m_event;
+
   sf::Font m_font;
   sf::Text m_playText;
   sf::Text m_quitText;
+  
   sf::Clock m_choiceClock;
+  sf::Clock m_fullscreenClock;
+  sf::Time m_fullscreenTime;
   sf::Time m_choiceTime;
 
   Game *m_game;

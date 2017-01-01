@@ -1,3 +1,4 @@
+
 #include "mainwindow.hpp"
 
 MainWindow::MainWindow(sf::RenderWindow *window) {
@@ -6,19 +7,24 @@ MainWindow::MainWindow(sf::RenderWindow *window) {
   std::cout << "Menu created" << std::endl;
 
   m_choiceClock.restart();
+  m_fullscreenClock.restart();
   m_choiceTime = sf::Time(sf::seconds(0.2f));
+  m_fullscreenTime = sf::seconds(2.f);
   
   m_menuArraySize = 2;
   m_selectedButton = 0;
 
-  std::string menuStringArray[m_menuArraySize] = {"Play", "Quit"};
+  m_fullscreen = false;
+  m_fullscreenEnable = false;
+
+  std::string menuStringArray[m_menuArraySize] = {"Play", "Quit"}; //Just add a new button
 
   for (int j(0); j < m_menuArraySize; j++) {
 	m_menuStringArray.push_back(menuStringArray[j]);
   }
   
   if (!m_font.loadFromFile("fonts/joystix.ttf")) {
-	std::cout << "Font have not been loaded" << std::endl;
+	std::cout << "Font hasn't been loaded" << std::endl;
   }
 
   for (int i(0); i < m_menuArraySize; i++) {
@@ -78,6 +84,21 @@ void MainWindow::start() {
 		deselect(m_selectedButton);
 		select(0);
 	  }
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F11) && m_fullscreenClock.getElapsedTime() >= m_fullscreenTime) {
+	  if (m_fullscreen) {
+		m_window->create(sf::VideoMode(1200, 800), "Cows-Bulls", sf::Style::Close | sf::Style::Resize);
+		m_fullscreen = false;
+		m_fullscreenClock.restart();
+	  } else {
+	    m_fullscreenEnable = true;
+	  }
+	} else if (m_fullscreenEnable && m_fullscreenClock.getElapsedTime() >= m_fullscreenTime) {
+	  m_window->create(sf::VideoMode(1200, 800), "Cows-Bulls", sf::Style::Close | sf::Style::Resize |sf::Style::Fullscreen);
+	  m_fullscreenEnable = false;
+	  m_fullscreen = true;
+	  m_fullscreenClock.restart();
 	}
 	
 	m_window->clear(sf::Color(109, 153, 255));
