@@ -19,6 +19,9 @@ public:
 private:
   sf::RenderWindow *m_window;
   sf::Event m_event;
+  sf::Font m_font;
+  sf::Text m_playText;
+  sf::Text m_quitText;
 
   Game *m_game;
 };
