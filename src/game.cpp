@@ -2,6 +2,8 @@
 
 Game::Game(sf::RenderWindow *window) {
   m_window = window;
+  m_red = new Board(true);
+  m_blue = new Board(false);
 }
 
 Game::~Game() {

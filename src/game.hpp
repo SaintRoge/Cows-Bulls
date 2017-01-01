@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "board.hpp"
+
 class Game {
 public:
   Game(sf::RenderWindow *window);
@@ -23,6 +25,9 @@ public:
 private:
   sf::RenderWindow *m_window;
   sf::Event m_event;
+
+  Board *m_red;
+  Board *m_blue;
 };
 
 #endif //GAME_HPP_INCLUDED
