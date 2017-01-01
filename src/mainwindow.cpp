@@ -2,6 +2,9 @@
 
 MainWindow::MainWindow(sf::RenderWindow *window) {
   m_window = window;
+  if (!m_font.loadFromFile("fonts/joystix.ttf")) {
+	std::cout << "Font have not been loaded" << std::endl;
+  }
 }
 
 MainWindow::~MainWindow() {
