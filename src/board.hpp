@@ -6,16 +6,20 @@
 
 class Board {
 public:
-  Board(bool const isRed);
+  Board();
   ~Board();
-  void turn();
+  bool turn(int turnNumber);
   /*
-   * Needs nothing
+   * Needs a number
    * It's the board turn
-   * Returns nothing
+   * Returns if you can do the turn
    */
 private:
-  bool m_isRed;
+  int m_chosenInt;
+  int m_turnNumber;
+  
+  std::vector<int> m_numberArray;
+  std::vector<std::vector<int>> m_cowsbullsArray;
 };
 
 #endif //BOARD_HPP_INCLUDED
